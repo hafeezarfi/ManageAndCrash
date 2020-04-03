@@ -5,7 +5,7 @@ import shutil
 
 path = '/home/hafeez/Downloads/'
 names = os.listdir(path)
-folder_name = ['Images', 'Audio', 'Videos', 'Documents', 'Softwares']
+folder_name = ['Images', 'Audio', 'Videos', 'Documents', 'Softwares','System']
 
 for x in range(0,6):
     if not os.path.exists(path+folder_name[x]):
