@@ -109,3 +109,6 @@ This script is usually run when you have too much files in your download folder 
 
 - References
 [Original Script](https://github.com/aiwithab/Scripts/blob/master/DownloadedFilesManager.py)
+
+
+[![HitCount](http://hits.dwyl.com/hafeezarfi/hafeezarfi/ManageAndCrash.svg)](http://hits.dwyl.com/hafeezarfi/hafeezarfi/ManageAndCrash)
