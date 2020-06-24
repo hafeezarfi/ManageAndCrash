@@ -1,7 +1,7 @@
 import os
 import shutil
 
-path = '/home/aiwithab/Downloads/'      # Path: to where you want to sort the files
+path = '/home/hafeez/Downloads/'      # Path: to where you want to sort the files
 
 files = os.listdir(path) # list all the files and store list in files variable
 
@@ -18,6 +18,10 @@ video_extensions = ['.mp4','.ts','.mkv','.web','.mpg','.mp2','.mpe','.mpe','.mpv
 document_extensions = ['.EXE','.csv','.mdj','.TXT','.txt','.html','.tex','.pdf','.PDF','.xps','.doc','.docx','.ppt','.pptx','.xls','.xml','.xslx']
 software_extensions = ['.json','.img','.exe','.deb','.tgz','.sh','.tar','.tar','.zip','.tar','.iso','.apk','.app','.7z','.zip','.rpm','.sit','.rar','.pkg']
 
+    # Extension lists are stored in one list to avoid repetition of code
+
+extensions = [image_extensions, audio_extensions, video_extensions, document_extensions, software_extensions]
+
 # Creating folders if not already present
 
 for x in range(0,5):
@@ -26,41 +30,18 @@ for x in range(0,5):
 
 
 # Function to move files based on its extension
-# extension is provided from list and folder is given manually
+# extension is provided from list and folder from folder_list list
 
 def moveFile(extension,folder_as_per_extension):
     
     for file in files:
 
-        if f"{extension}" in file and not os.path.exists(path+f'{folder_as_per_extension}/'+file): # checks if extension is present in file name and location of file
+        if extension in file and not os.path.exists(path+f'{folder_as_per_extension}/'+file): # checks if extension is present in file name and location of file
             shutil.move(path+file, path+f'{folder_as_per_extension}/'+file) # moves file to desired folder
     
 
-#*****************Image*******************
-
-for extension in image_extensions:
-    moveFile(extension,'Images')
-
-
-#*****************Audio*******************
-
-for extension in audio_extensions:
-    moveFile(extension,'Audios')
-
-
-#*****************Video*******************
-
-for extension in video_extensions:
-    moveFile(extension,'Videos')
-
-
-#**************Document*******************
-
-for extension in document_extensions:
-    moveFile(extension,'Documents')
-
-
-#**************Software*******************
-
-for extension in software_extensions:
-    moveFile(extension,'Softwares')
+folder_iterator=0
+for type_of_extension in extensions:
+    for extension in type_of_extension:
+        moveFile(extension,folder_name[folder_iterator])
+    folder_iterator=folder_iterator+1
